@@ -14,7 +14,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-  <form action="http://121.42.12.128/REST/mysfuck/gange"  method="GET">
+  <form action="${pageContext.request.contextPath }/REST/mysfuck/gange"  method="GET">
 <input type="submit" value="查询" >
 </form>
   </head>

@@ -17,10 +17,10 @@ import java.sql.ResultSet;
 public class ConnectionFactory {
 
 	// Caminho do banco de dados.
-	private static final String DRIVER = "org.postgresql.Driver";
-	private static final String URL = "jdbc:postgresql://localhost:5432/webservice";
-	private static final String USUARIO = "postgres";
-	private static final String SENHA = "12345";
+	private static final String DRIVER = "com.mysql.jdbc.Driver";
+	private static final String URL = "jdbc:mysql://swweaper5.mysql.rds.aliyuncs.com:3306/cookfoodshare";
+	private static final String USUARIO = "swweaper5";
+	private static final String SENHA = "a051226";
 	
 
 	/**
@@ -32,28 +32,23 @@ public class ConnectionFactory {
 	 * @since 17/02/2013 01:51:54
 	 * @version 1.0
 	 */
-	public Connection criarConexao(){
+	public Connection createConnect(){
 
 		Connection conexao = null;
-////////////////////////////////////////刘建中加上去的调试代码
-		if (conexao == null){
-			return conexao;
-		}
-////////////////////////////////////////
 		try {
 			
 			Class.forName(DRIVER);
 			conexao = DriverManager.getConnection(URL, USUARIO, SENHA);
 			
 		} catch (Exception e) {
-			System.out.println("Erro ao criar conex鉶 com o banco: " + URL);
+			System.out.println("Erro: " + URL);
 			e.printStackTrace();
 		}
 		return conexao;
 	}
 	
 	
-	public void fecharConexao(Connection conexao, PreparedStatement pstmt, ResultSet rs){
+	public void releaseConnect(Connection conexao, PreparedStatement pstmt, ResultSet rs){
 		
 		try {
 			
@@ -68,7 +63,7 @@ public class ConnectionFactory {
 			}
 					
 		} catch (Exception e) {
-			System.out.println("Erro ao fechar conex鉶 com o banco: " + URL);
+			System.out.println("Erro: " + URL);
 		}
 	}
 }
