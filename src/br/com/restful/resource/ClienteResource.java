@@ -12,8 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
+import javax.ws.rs.core.Request;
+import javax.ws.rs.core.UriInfo;
 
 import com.sun.jersey.api.view.Viewable;
 
@@ -30,7 +33,11 @@ import br.com.restful.model.Cliente;
  */
 @Path("/mysfuck")
 public class ClienteResource {
-
+	@Context
+	UriInfo uriInfo;
+	
+	@Context
+	Request request;
 	/**
 	 * 
 	 * M�todo respons�vel por fazer chamada ao controller汉子
@@ -61,9 +68,10 @@ public class ClienteResource {
  * @throws SQLException
  */
 	@GET
-	@Path("/get12306ValueByKey")
+//	@Path("/get12306ValueByKey")
+	@Path(value="/get12306ValueByKey/{key}")
 	@Produces("application/json")
-	public String get12306ValueByKey(String key) throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
+	public String get12306ValueByKey(@PathParam("key") String key) throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
 		String pp = new ClienteController().get12306KeyValue(key);
 		return pp;
 	}
