@@ -22,7 +22,7 @@ import br.com.restful.model.Cliente;
 
 /**
  * 
- * Classe respons·vel por conter os metodos REST de acesso ao webservice
+ * Classe responsÔøΩvel por conter os metodos REST de acesso ao webservice
  *
  * @author Douglas Costa <douglas.cst90@gmail.com>
  * @since 17/02/2013 02:05:23
@@ -33,7 +33,7 @@ public class ClienteResource {
 
 	/**
 	 * 
-	 * MÈtodo respons·vel por fazer chamada ao controller
+	 * MÔøΩtodo responsÔøΩvel por fazer chamada ao controllerÊ±âÂ≠ê
 	 *
 	 * @return ArrayList<Cliente> 
 	 * @author Douglas Costa <douglas.cst90@gmail.com.br>
@@ -51,13 +51,29 @@ public class ClienteResource {
 		ArrayList<Cliente> pp = new ClienteController().listarTodos();
 		return pp;
 	}
-	////////////////////////////////////////////////œ¬√Ê «jsp/////////////////////////////////////////////////////
+
+/**
+ * 
+ * @return
+ * @throws InstantiationException
+ * @throws IllegalAccessException
+ * @throws ClassNotFoundException
+ * @throws SQLException
+ */
+	@GET
+	@Path("/get12306ValueByKey")
+	@Produces("application/json")
+	public String get12306ValueByKey(String key) throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
+		String pp = new ClienteController().get12306KeyValue(key);
+		return pp;
+	}
+	////////////////////////////////////////////////ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩjsp/////////////////////////////////////////////////////
 //	      
 //	    @Context HttpServletRequest request;  
 //	    @Context HttpServletResponse response;  
 //	      
 //	    /** 
-//	     * µ•Ãı–¬Ω® 
+//	     * ÔøΩÔøΩÔøΩÔøΩÔøΩ¬ΩÔøΩ 
 //	     * @return 
 //	     */  
 //	    @GET  
